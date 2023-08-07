@@ -1,6 +1,6 @@
 Snakemake workflow for primary analysis of imaging-based spatial transcriptomic data. 
 
-Data used for this project can be accessed here: https://drive.google.com/drive/folders/1Tqv58Bto6mCE_oyBI9vyJodWHe_qBwh1?usp=sharing
+Raw data used in this project (src directory), and relevant outputs (out directory) can be accessed here: https://drive.google.com/drive/folders/1Tqv58Bto6mCE_oyBI9vyJodWHe_qBwh1?usp=sharing
 
 To run workflow, Baysor binary needs to be downloaded into main directory. Details here: https://github.com/kharchenkolab/Baysor#binary-download
 
