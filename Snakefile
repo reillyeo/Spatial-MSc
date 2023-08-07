@@ -15,7 +15,7 @@ rule all:
         expand("out/sctype_labelled/{section}_sctyped", section = SECTION_PREFIXES)
 
 
-
+# run cellpose segmentation on all dapi images and add segmentation labels to reads dataframes
 rule run_cellpose:
     input:
         dapi = "src/raw_data/dapi_images/{section}.tif",
@@ -26,7 +26,7 @@ rule run_cellpose:
         "python src/scripts/cellpose_seg.py {input.dapi} {input.reads} {output}"
 
 
-
+# run baysor segmentation on all sections using prior cellpose segmentation
 rule run_baysor:
     input:
         df = "out/cellpose_output/{section}_cp.csv",
@@ -37,7 +37,7 @@ rule run_baysor:
         "./baysor/bin/baysor run -c {input.config} {input.df} :cp_label -o {output}"
 
 
-
+# read baysor results and convert to single-cell format csv that can be read into seurat
 rule run_data_gen:
     input:
         "out/baysor_results/{section}"
@@ -47,7 +47,7 @@ rule run_data_gen:
         "python src/scripts/data_gen.py {input} {output}"
 
 
-
+# run various dimension reductions on seurat objects
 rule run_dimreduc:
     input:
         df = "src/data_post_seg/{section}.csv"
@@ -57,6 +57,7 @@ rule run_dimreduc:
         "Rscript src/scripts/dimreducs.R {input} {output}"
 
 
+# following 5 rules all perform cell type labelling in different manners or based on different dimreducs
 
 rule run_labeltransfer_corral:
     input:
