@@ -1,4 +1,4 @@
-Snakemake workflow for primary analysis of imaging-based spatial transcriptomic data. 
+Snakemake workflow for segmentation and primary analysis of imaging-based spatial transcriptomic data. 
 
 Raw data used in this project (src directory), and relevant outputs (out directory) can be accessed here: https://drive.google.com/drive/folders/1Tqv58Bto6mCE_oyBI9vyJodWHe_qBwh1?usp=sharing
 
