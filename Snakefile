@@ -114,10 +114,10 @@ rule run_sctype:
 
 
 
-#rule dimred_qc:
-#    input:
-#        "out/{section}_sc_df.csv"
-#    output:
-#        "out/{section}_dr_qc3.csv"
-#    shell:
-#        "Rscript src/scripts/dimred_qc.R {input} {output}"
+rule dimred_qc:
+    input:
+        "out/{section}_sc_df.csv"
+    output:
+        "out/{section}_dr_qc3.csv"
+    shell:
+        "Rscript src/scripts/dimred_qc.R {input} {output}"
